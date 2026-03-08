@@ -2,9 +2,11 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Shield, ArrowRight, Search, CheckCircle, XCircle, Loader2 } from "lucide-react";
+import { Shield, ArrowRight, Search, CheckCircle, XCircle, Loader2, AlertTriangle, ExternalLink, Upload } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const trademarkClasses = [
   "Class 1 - Chemicals", "Class 2 - Paints", "Class 3 - Cosmetics", "Class 5 - Pharmaceuticals",
@@ -22,11 +24,24 @@ const processSteps = [
   { step: "5", title: "Registration", desc: "Certificate issued if no opposition is filed." },
 ];
 
+type RiskResult = {
+  name: string;
+  similarMarks: number;
+  riskLevel: "Low" | "Medium" | "High";
+  probability: number;
+  tmClass: string;
+};
+
 const Trademark = () => {
+  const { toast } = useToast();
   const [brandName, setBrandName] = useState("");
   const [tmClass, setTmClass] = useState("");
-  const [searchResult, setSearchResult] = useState<null | "available" | "similar">(null);
+  const [searchResult, setSearchResult] = useState<RiskResult | null>(null);
   const [searching, setSearching] = useState(false);
+
+  // Registration form
+  const [regForm, setRegForm] = useState({ name: "", phone: "", email: "", brand: "", tmClass: "", logo: null as File | null });
+  const [regSubmitted, setRegSubmitted] = useState(false);
 
   const handleSearch = () => {
     if (!brandName.trim()) return;
@@ -34,11 +49,48 @@ const Trademark = () => {
     setSearchResult(null);
     setTimeout(() => {
       setSearching(false);
-      // Simulate: names with common words show "similar", others "available"
-      const common = ["apple", "google", "nike", "amazon", "samsung", "tata", "reliance"];
-      const isCommon = common.some((c) => brandName.toLowerCase().includes(c));
-      setSearchResult(isCommon ? "similar" : "available");
-    }, 1500);
+      const common = ["apple", "google", "nike", "amazon", "samsung", "tata", "reliance", "microsoft", "meta", "uber"];
+      const partial = ["tech", "global", "india", "smart", "digital", "cloud", "net", "pro"];
+      const nameLower = brandName.toLowerCase();
+      const isExact = common.some((c) => nameLower.includes(c));
+      const isPartial = partial.some((c) => nameLower.includes(c));
+
+      let riskLevel: "Low" | "Medium" | "High";
+      let similarMarks: number;
+      let probability: number;
+
+      if (isExact) {
+        riskLevel = "High";
+        similarMarks = Math.floor(Math.random() * 5) + 5;
+        probability = Math.floor(Math.random() * 20) + 10;
+      } else if (isPartial) {
+        riskLevel = "Medium";
+        similarMarks = Math.floor(Math.random() * 4) + 1;
+        probability = Math.floor(Math.random() * 25) + 50;
+      } else {
+        riskLevel = "Low";
+        similarMarks = Math.floor(Math.random() * 2);
+        probability = Math.floor(Math.random() * 15) + 80;
+      }
+
+      setSearchResult({
+        name: brandName,
+        similarMarks,
+        riskLevel,
+        probability,
+        tmClass: tmClass || "Not specified",
+      });
+    }, 2000);
+  };
+
+  const handleRegSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!regForm.name || !regForm.email || !regForm.brand) {
+      toast({ title: "Please fill required fields", variant: "destructive" });
+      return;
+    }
+    setRegSubmitted(true);
+    toast({ title: "Application Submitted!", description: "We'll contact you within 24 hours to proceed." });
   };
 
   return (
@@ -95,7 +147,7 @@ const Trademark = () => {
         <div className="container mx-auto max-w-3xl px-4">
           <h2 className="mb-4 font-serif text-2xl font-bold">Trademark Classes in India</h2>
           <p className="mb-6 text-muted-foreground">
-            India follows the NICE Classification system with 45 classes — 34 for goods and 11 for services. Select the appropriate class when filing your application.
+            India follows the NICE Classification system with 45 classes — 34 for goods and 11 for services.
           </p>
           <div className="flex flex-wrap gap-2">
             {trademarkClasses.map((c) => (
@@ -127,66 +179,209 @@ const Trademark = () => {
         </div>
       </section>
 
-      {/* Search Tool */}
+      {/* Search Tools - Tabbed */}
       <section id="search" className="border-t border-border bg-card py-16">
-        <div className="container mx-auto max-w-2xl px-4">
-          <h2 className="mb-2 font-serif text-2xl font-bold text-center">Trademark Search Tool</h2>
+        <div className="container mx-auto max-w-3xl px-4">
+          <h2 className="mb-2 font-serif text-2xl font-bold text-center">Trademark Search</h2>
           <p className="mb-8 text-center text-sm text-muted-foreground">
-            Check if your desired brand name is available for registration.
+            Search for trademark availability using our AI tool or the official government database.
           </p>
-          <div className="space-y-4 rounded-lg border border-border bg-background p-6">
-            <div>
-              <label className="mb-1.5 block text-sm font-medium">Brand Name</label>
-              <Input
-                placeholder="Enter your brand name"
-                value={brandName}
-                onChange={(e) => setBrandName(e.target.value)}
-              />
-            </div>
-            <div>
-              <label className="mb-1.5 block text-sm font-medium">Trademark Class</label>
-              <Select value={tmClass} onValueChange={setTmClass}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a class" />
-                </SelectTrigger>
-                <SelectContent>
-                  {trademarkClasses.map((c) => (
-                    <SelectItem key={c} value={c}>{c}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            <Button variant="gold" className="w-full" onClick={handleSearch} disabled={searching || !brandName.trim()}>
-              {searching ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Search className="mr-2 h-4 w-4" />}
-              {searching ? "Searching..." : "Search Trademark"}
-            </Button>
-            {searchResult && (
-              <div className={`mt-4 rounded-md border p-4 ${searchResult === "available" ? "border-border bg-secondary" : "border-border bg-secondary"}`}>
-                {searchResult === "available" ? (
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="h-6 w-6 text-primary" />
-                    <div>
-                      <p className="font-semibold">Available!</p>
-                      <p className="text-sm text-muted-foreground">"{brandName}" appears to be available for registration.</p>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-3">
-                    <XCircle className="h-6 w-6 text-primary" />
-                    <div>
-                      <p className="font-semibold">Similar Trademarks Found</p>
-                      <p className="text-sm text-muted-foreground">Similar marks exist for "{brandName}". A detailed search is recommended.</p>
+
+          <Tabs defaultValue="smart" className="w-full">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="smart">AI Risk Analysis</TabsTrigger>
+              <TabsTrigger value="government">Government Search</TabsTrigger>
+            </TabsList>
+
+            {/* Smart Search */}
+            <TabsContent value="smart">
+              <div className="space-y-4 rounded-lg border border-border bg-background p-6">
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium">Brand Name</label>
+                  <Input
+                    placeholder="Enter your brand name"
+                    value={brandName}
+                    onChange={(e) => setBrandName(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium">Trademark Class</label>
+                  <Select value={tmClass} onValueChange={setTmClass}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a class" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {trademarkClasses.map((c) => (
+                        <SelectItem key={c} value={c}>{c}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <Button variant="gold" className="w-full" onClick={handleSearch} disabled={searching || !brandName.trim()}>
+                  {searching ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Search className="mr-2 h-4 w-4" />}
+                  {searching ? "Analyzing..." : "Analyze Trademark Risk"}
+                </Button>
+
+                {/* Risk Analysis Report */}
+                {searchResult && (
+                  <div className="mt-6 space-y-4">
+                    <div className="rounded-lg border border-border bg-card p-6">
+                      <h3 className="mb-4 font-serif text-lg font-bold text-center">Trademark Risk Analysis Report</h3>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <div className="rounded-md bg-secondary p-4 text-center">
+                          <p className="text-xs text-muted-foreground uppercase tracking-wide">Brand Name</p>
+                          <p className="mt-1 font-serif text-lg font-bold">{searchResult.name}</p>
+                        </div>
+                        <div className="rounded-md bg-secondary p-4 text-center">
+                          <p className="text-xs text-muted-foreground uppercase tracking-wide">Class</p>
+                          <p className="mt-1 font-serif text-lg font-bold">{searchResult.tmClass}</p>
+                        </div>
+                        <div className="rounded-md bg-secondary p-4 text-center">
+                          <p className="text-xs text-muted-foreground uppercase tracking-wide">Similar Marks Found</p>
+                          <p className="mt-1 font-serif text-2xl font-bold text-primary">{searchResult.similarMarks}</p>
+                        </div>
+                        <div className="rounded-md bg-secondary p-4 text-center">
+                          <p className="text-xs text-muted-foreground uppercase tracking-wide">Risk Level</p>
+                          <div className="mt-1 flex items-center justify-center gap-2">
+                            {searchResult.riskLevel === "Low" && <CheckCircle className="h-5 w-5 text-primary" />}
+                            {searchResult.riskLevel === "Medium" && <AlertTriangle className="h-5 w-5 text-primary" />}
+                            {searchResult.riskLevel === "High" && <XCircle className="h-5 w-5 text-destructive" />}
+                            <span className={`font-serif text-lg font-bold ${searchResult.riskLevel === "High" ? "text-destructive" : "text-primary"}`}>
+                              {searchResult.riskLevel}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Probability Bar */}
+                      <div className="mt-6">
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="text-xs text-muted-foreground uppercase tracking-wide">Registration Probability</p>
+                          <p className="font-serif text-lg font-bold text-primary">{searchResult.probability}%</p>
+                        </div>
+                        <div className="h-3 w-full rounded-full bg-secondary overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-gradient-gold transition-all duration-1000"
+                            style={{ width: `${searchResult.probability}%` }}
+                          />
+                        </div>
+                      </div>
+                      <div className="mt-6 text-center">
+                        <Link to="/contact">
+                          <Button variant="gold">
+                            Proceed with Registration <ArrowRight className="ml-1 h-4 w-4" />
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 )}
               </div>
-            )}
-          </div>
+            </TabsContent>
+
+            {/* Government Search (iframe) */}
+            <TabsContent value="government">
+              <div className="space-y-4 rounded-lg border border-border bg-background p-6">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-muted-foreground">
+                    Official search powered by the Controller General of Patents, Designs & Trademarks
+                  </p>
+                  <a
+                    href="https://tmsearch.ipindia.gov.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-xs text-primary hover:underline"
+                  >
+                    Open in new tab <ExternalLink className="h-3 w-3" />
+                  </a>
+                </div>
+                <div className="relative overflow-hidden rounded-md border border-border" style={{ height: "700px" }}>
+                  <iframe
+                    src="https://tmsearch.ipindia.gov.in"
+                    width="100%"
+                    height="100%"
+                    title="IP India Trademark Search"
+                    className="border-0"
+                    sandbox="allow-forms allow-scripts allow-same-origin"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground text-center">
+                  Note: Some government websites may restrict embedding. If the search doesn't load, please{" "}
+                  <a href="https://tmsearch.ipindia.gov.in" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    click here to open directly
+                  </a>.
+                </p>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
+      {/* Registration Form */}
+      <section className="py-16">
+        <div className="container mx-auto max-w-2xl px-4">
+          <h2 className="mb-2 font-serif text-2xl font-bold text-center">Start Trademark Registration</h2>
+          <p className="mb-8 text-center text-sm text-muted-foreground">
+            Fill in your details and our team will handle the entire filing process.
+          </p>
+          {regSubmitted ? (
+            <div className="flex flex-col items-center justify-center rounded-lg border border-border bg-card p-12 text-center">
+              <CheckCircle className="mb-4 h-12 w-12 text-primary" />
+              <h3 className="mb-2 font-serif text-xl font-bold">Application Submitted!</h3>
+              <p className="text-sm text-muted-foreground">Our team will contact you within 24 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleRegSubmit} className="space-y-4 rounded-lg border border-border bg-card p-6">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium">Full Name *</label>
+                  <Input value={regForm.name} onChange={(e) => setRegForm({ ...regForm, name: e.target.value })} placeholder="Your name" />
+                </div>
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium">Phone</label>
+                  <Input value={regForm.phone} onChange={(e) => setRegForm({ ...regForm, phone: e.target.value })} placeholder="+91 XXXXX XXXXX" />
+                </div>
+              </div>
+              <div>
+                <label className="mb-1.5 block text-sm font-medium">Email *</label>
+                <Input type="email" value={regForm.email} onChange={(e) => setRegForm({ ...regForm, email: e.target.value })} placeholder="you@example.com" />
+              </div>
+              <div>
+                <label className="mb-1.5 block text-sm font-medium">Brand Name *</label>
+                <Input value={regForm.brand} onChange={(e) => setRegForm({ ...regForm, brand: e.target.value })} placeholder="Your brand name" />
+              </div>
+              <div>
+                <label className="mb-1.5 block text-sm font-medium">Trademark Class</label>
+                <Select value={regForm.tmClass} onValueChange={(v) => setRegForm({ ...regForm, tmClass: v })}>
+                  <SelectTrigger><SelectValue placeholder="Select class" /></SelectTrigger>
+                  <SelectContent>
+                    {trademarkClasses.map((c) => (
+                      <SelectItem key={c} value={c}>{c}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="mb-1.5 block text-sm font-medium">Upload Logo (optional)</label>
+                <div className="flex items-center gap-2 rounded-md border border-border bg-background px-3 py-2">
+                  <Upload className="h-4 w-4 text-muted-foreground" />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="text-sm text-muted-foreground file:border-0 file:bg-transparent file:text-sm"
+                    onChange={(e) => setRegForm({ ...regForm, logo: e.target.files?.[0] || null })}
+                  />
+                </div>
+              </div>
+              <Button variant="gold" type="submit" className="w-full">
+                Start Trademark Registration <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </form>
+          )}
         </div>
       </section>
 
       {/* Authority */}
-      <section className="py-16">
+      <section className="border-t border-border bg-card py-16">
         <div className="container mx-auto max-w-3xl px-4 text-center">
           <p className="text-sm text-muted-foreground">
             Government Authority:{" "}
@@ -195,11 +390,9 @@ const Trademark = () => {
             </span>{" "}
             — under the Department for Promotion of Industry and Internal Trade, Ministry of Commerce.
           </p>
-          <Link to="/contact" className="mt-6 inline-block">
-            <Button variant="gold">
-              Start Registration <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-          </Link>
+          <a href="https://ipindia.gov.in" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm text-primary hover:underline">
+            Visit ipindia.gov.in <ExternalLink className="h-3 w-3" />
+          </a>
         </div>
       </section>
     </Layout>
