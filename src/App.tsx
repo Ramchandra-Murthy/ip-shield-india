@@ -43,6 +43,7 @@ const App = () => (
           <Route path="/ai-advisor" element={<AIChatbot />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/class-finder" element={<ClassFinder />} />
+          <Route path="/objection-reply" element={<ObjectionReply />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
