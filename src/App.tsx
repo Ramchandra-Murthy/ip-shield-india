@@ -17,6 +17,7 @@ import DocumentGenerator from "./pages/DocumentGenerator";
 import AIChatbot from "./pages/AIChatbot";
 import Blog from "./pages/Blog";
 import ClassFinder from "./pages/ClassFinder";
+import ObjectionReply from "./pages/ObjectionReply";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
