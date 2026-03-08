@@ -20,6 +20,8 @@ import ClassFinder from "./pages/ClassFinder";
 import ObjectionReply from "./pages/ObjectionReply";
 import TrademarkGuide from "./pages/TrademarkGuide";
 import ClientIntake from "./pages/ClientIntake";
+import OppositionNotice from "./pages/OppositionNotice";
+import HearingPrep from "./pages/HearingPrep";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +50,8 @@ const App = () => (
           <Route path="/objection-reply" element={<ObjectionReply />} />
           <Route path="/trademark-guide" element={<TrademarkGuide />} />
           <Route path="/client-intake" element={<ClientIntake />} />
+          <Route path="/opposition-notice" element={<OppositionNotice />} />
+          <Route path="/hearing-prep" element={<HearingPrep />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

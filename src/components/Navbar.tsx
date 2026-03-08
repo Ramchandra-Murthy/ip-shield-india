@@ -20,11 +20,13 @@ const mainLinks = [
 const toolLinks = [
   { href: "/brand-generator", label: "AI Brand Generator" },
   { href: "/class-finder", label: "Class Finder" },
+  { href: "/ai-advisor", label: "AI Legal Advisor" },
+  { href: "/objection-reply", label: "Objection Reply" },
+  { href: "/opposition-notice", label: "Opposition Notice" },
+  { href: "/hearing-prep", label: "Hearing Prep" },
+  { href: "/documents", label: "Document Generator" },
   { href: "/domain-checker", label: "Domain Checker" },
   { href: "/numerology", label: "Numerology" },
-  { href: "/documents", label: "Document Generator" },
-  { href: "/ai-advisor", label: "AI Legal Advisor" },
-  { href: "/objection-reply", label: "Objection Reply Generator" },
 ];
 
 const moreLinks = [
