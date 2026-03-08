@@ -16,6 +16,7 @@ import Numerology from "./pages/Numerology";
 import DocumentGenerator from "./pages/DocumentGenerator";
 import AIChatbot from "./pages/AIChatbot";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import ClassFinder from "./pages/ClassFinder";
 import ObjectionReply from "./pages/ObjectionReply";
 import TrademarkGuide from "./pages/TrademarkGuide";
