@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield } from "lucide-react";
+import { Shield, Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => (
   <footer className="border-t border-border bg-card">
@@ -10,34 +10,57 @@ const Footer = () => (
             <Shield className="h-6 w-6 text-primary" />
             <span className="font-serif text-lg font-bold">IP Protection India</span>
           </div>
-          <p className="text-sm text-muted-foreground">
-            Trusted intellectual property services across India. Trademarks, copyrights, and patents made simple.
+          <p className="text-sm text-muted-foreground mb-3">
+            Expert intellectual property legal services by Advocate Anuradha R. Kulkarni (MSc, LLB, LLM).
           </p>
+          <div className="space-y-1.5 text-sm text-muted-foreground">
+            <div className="flex items-center gap-1.5">
+              <Phone className="h-3.5 w-3.5 text-primary" />
+              <a href="tel:+919869832220" className="hover:text-foreground transition-colors">+91 9869832220</a>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Mail className="h-3.5 w-3.5 text-primary" />
+              <a href="mailto:anuradharkulkarni1976@gmail.com" className="hover:text-foreground transition-colors text-xs">anuradharkulkarni1976@gmail.com</a>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5 text-primary" />
+              <span>Mumbai & Bengaluru</span>
+            </div>
+          </div>
         </div>
         <div>
-          <h4 className="font-serif text-sm font-semibold text-primary mb-3">Services</h4>
+          <h4 className="font-serif text-sm font-semibold text-primary mb-3">Legal Services</h4>
           <div className="flex flex-col gap-2">
             <Link to="/trademark" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Trademark Registration</Link>
-            <Link to="/copyright" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Copyright Registration</Link>
+            <Link to="/copyright" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Copyright Protection</Link>
             <Link to="/patent" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Patent Filing</Link>
+            <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">IP Consultation</Link>
           </div>
         </div>
         <div>
-          <h4 className="font-serif text-sm font-semibold text-primary mb-3">Company</h4>
+          <h4 className="font-serif text-sm font-semibold text-primary mb-3">Tools</h4>
+          <div className="flex flex-col gap-2">
+            <Link to="/brand-generator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Brand Name Generator</Link>
+            <Link to="/domain-checker" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Domain Checker</Link>
+            <Link to="/numerology" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Numerology Analyzer</Link>
+            <Link to="/documents" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Document Generator</Link>
+            <Link to="/ai-advisor" className="text-sm text-muted-foreground hover:text-foreground transition-colors">AI Legal Advisor</Link>
+          </div>
+        </div>
+        <div>
+          <h4 className="font-serif text-sm font-semibold text-primary mb-3">More</h4>
           <div className="flex flex-col gap-2">
             <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</Link>
+            <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
             <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
           </div>
-        </div>
-        <div>
-          <h4 className="font-serif text-sm font-semibold text-primary mb-3">Legal</h4>
-          <p className="text-sm text-muted-foreground">
-            Government Authority: Controller General of Patents, Designs & Trademarks
+          <p className="mt-4 text-xs text-muted-foreground">
+            Govt. Authority: Controller General of Patents, Designs & Trademarks
           </p>
         </div>
       </div>
       <div className="mt-10 border-t border-border pt-6 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} IP Protection India. All rights reserved.
+        © {new Date().getFullYear()} IP Protection India — Advocate Anuradha R. Kulkarni. All rights reserved.
       </div>
     </div>
   </footer>

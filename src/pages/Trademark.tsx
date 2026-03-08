@@ -120,18 +120,18 @@ const Trademark = () => {
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Our Trademark Services */}
       <section className="py-16">
         <div className="container mx-auto max-w-3xl px-4">
-          <h2 className="mb-6 font-serif text-2xl font-bold">Benefits of Trademark Protection</h2>
+          <h2 className="mb-6 font-serif text-2xl font-bold">Our Trademark Services</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             {[
-              "Exclusive legal right to use the mark",
-              "Legal protection against infringement",
-              "Builds trust and brand recognition",
-              "Valid for 10 years, renewable indefinitely",
-              "Can be licensed or franchised",
-              "Asset value for your business",
+              "Trademark Search and Availability Check",
+              "Trademark Filing and Registration",
+              "Trademark Objection Reply",
+              "Trademark Opposition Handling",
+              "Trademark Hearing Representation",
+              "Trademark Renewal and Assignment",
             ].map((b) => (
               <div key={b} className="flex items-start gap-3 rounded-md border border-border p-4">
                 <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
