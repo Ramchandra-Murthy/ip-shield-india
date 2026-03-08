@@ -1,28 +1,29 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Shield, FileText, Lightbulb, Search, ArrowRight, CheckCircle, Sparkles, Globe, Hash, Bot, FileDown } from "lucide-react";
+import { Shield, FileText, Lightbulb, Search, ArrowRight, CheckCircle, Sparkles, Globe, Hash, Bot, FileDown, Scale, Phone, MapPin } from "lucide-react";
 
 const services = [
-  { icon: Shield, title: "Trademark Registration", desc: "Protect your brand identity across all 45 classes in India.", href: "/trademark" },
-  { icon: FileText, title: "Copyright Registration", desc: "Secure your creative works under Indian copyright law.", href: "/copyright" },
-  { icon: Lightbulb, title: "Patent Filing", desc: "File patents for your inventions with expert guidance.", href: "/patent" },
-  { icon: Search, title: "AI Trademark Search", desc: "Smart trademark search with risk analysis and registration probability.", href: "/trademark#search" },
+  { icon: Shield, title: "Trademark Registration", desc: "Trademark search, filing, objection reply, opposition handling, hearing representation, renewal & assignment.", href: "/trademark" },
+  { icon: FileText, title: "Copyright Registration", desc: "Copyright registration, legal consultation, licensing agreements, and infringement advice.", href: "/copyright" },
+  { icon: Lightbulb, title: "Patent Services", desc: "Patent filing assistance, patentability search, documentation guidance, and consultation.", href: "/patent" },
+  { icon: Scale, title: "IP Consultation", desc: "Strategic advice for businesses, startups, and creators on protecting intellectual assets.", href: "/contact" },
   { icon: Sparkles, title: "AI Brand Generator", desc: "Generate unique brand names with trademark risk and numerology scores.", href: "/brand-generator" },
   { icon: Bot, title: "AI Legal Advisor", desc: "Ask questions about IP law in India and get instant answers.", href: "/ai-advisor" },
 ];
 
 const tools = [
+  { icon: Search, title: "Trademark Search", desc: "AI-powered risk analysis with registration probability.", href: "/trademark#search" },
   { icon: Globe, title: "Domain Checker", desc: "Check domain availability across .com, .in, .ai and more.", href: "/domain-checker" },
   { icon: Hash, title: "Numerology Analyzer", desc: "Analyze the numerological vibration of your business name.", href: "/numerology" },
   { icon: FileDown, title: "Document Generator", desc: "Auto-generate trademark application drafts (Form TM-A).", href: "/documents" },
 ];
 
 const stats = [
-  { value: "10,000+", label: "Trademarks Filed" },
+  { value: "20+", label: "Years Experience" },
+  { value: "10,000+", label: "Cases Handled" },
   { value: "98%", label: "Success Rate" },
-  { value: "5,000+", label: "Happy Clients" },
-  { value: "15+", label: "Years Experience" },
+  { value: "2", label: "Offices in India" },
 ];
 
 const Index = () => (
@@ -34,24 +35,27 @@ const Index = () => (
       <div className="container relative mx-auto px-4 text-center">
         <div className="mx-auto max-w-3xl animate-fade-in">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
-            AI-Powered IP Protection Platform
+            Expert IP Legal Services Since 2000
           </p>
           <h1 className="mb-6 font-serif text-4xl font-bold leading-tight md:text-6xl">
-            Protect Your Brand, Ideas and{" "}
-            <span className="text-gradient-gold">Creative Work</span> in India
+            Protect Your Brand, Creativity and{" "}
+            <span className="text-gradient-gold">Inventions</span>
           </h1>
-          <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
-            AI-powered trademark, copyright and patent protection. Smart search, risk analysis, and automated legal documents.
+          <p className="mx-auto mb-4 max-w-2xl text-lg text-muted-foreground">
+            <strong className="text-foreground">Advocate Anuradha R. Kulkarni</strong> (MSc, LLB, LLM – Intellectual Property Laws) provides professional legal assistance for Trademark Registration, Copyright Protection, and Patent Filing.
+          </p>
+          <p className="mx-auto mb-10 max-w-xl text-muted-foreground">
+            Over 20 years of experience helping entrepreneurs, startups, creators, and businesses protect their intellectual property across India.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link to="/trademark#search">
               <Button variant="gold" size="lg">
-                <Search className="mr-1 h-4 w-4" /> Check Trademark
+                <Search className="mr-1 h-4 w-4" /> Check Trademark Availability
               </Button>
             </Link>
             <Link to="/trademark">
               <Button variant="gold-outline" size="lg">
-                Register Brand <ArrowRight className="ml-1 h-4 w-4" />
+                Start Registration <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/contact">
@@ -60,12 +64,38 @@ const Index = () => (
               </Button>
             </Link>
           </div>
+
+          {/* Quick contact info */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <Phone className="h-4 w-4 text-primary" /> +91 9869832220
+            </span>
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-4 w-4 text-primary" /> Mumbai & Bengaluru
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Key Services Highlights */}
+    <section className="border-y border-border bg-card py-10">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {[
+            "✔ Trademark Registration",
+            "✔ Copyright Protection",
+            "✔ Patent Filing & Advisory",
+            "✔ Trademark Opposition & Appeals",
+          ].map((item) => (
+            <div key={item} className="text-center text-sm font-medium">{item}</div>
+          ))}
         </div>
       </div>
     </section>
 
     {/* Stats */}
-    <section className="border-y border-border bg-card">
+    <section className="bg-card">
       <div className="container mx-auto grid grid-cols-2 gap-6 px-4 py-12 md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label} className="text-center">
@@ -80,8 +110,11 @@ const Index = () => (
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Our Services</p>
-          <h2 className="font-serif text-3xl font-bold md:text-4xl">Comprehensive IP Protection</h2>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Our Legal Services</p>
+          <h2 className="font-serif text-3xl font-bold md:text-4xl">Complete IP Protection</h2>
+          <p className="mt-3 mx-auto max-w-2xl text-muted-foreground">
+            From consultation and filing to hearings and appeals — comprehensive intellectual property services.
+          </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
@@ -105,7 +138,7 @@ const Index = () => (
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Platform Tools</p>
           <h2 className="font-serif text-3xl font-bold md:text-4xl">Smart Business Tools</h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {tools.map((t) => (
             <Link key={t.title} to={t.href} className="group rounded-lg border border-border bg-background p-6 transition-all hover:border-primary/40 hover:shadow-gold">
               <t.icon className="mb-4 h-10 w-10 text-primary" />
@@ -117,27 +150,35 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Why Us */}
+    {/* About the Advocate */}
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <div className="mb-12 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Why Choose Us</p>
-          <h2 className="font-serif text-3xl font-bold md:text-4xl">Trusted by Thousands</h2>
-        </div>
-        <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-2">
-          {[
-            "AI-powered legal analysis & risk assessment",
-            "Government compliant filings (IP India)",
-            "End-to-end digital filing process",
-            "Transparent pricing, no hidden fees",
-            "Secure document handling & cloud storage",
-            "Fast turnaround with real-time tracking",
-          ].map((item) => (
-            <div key={item} className="flex items-start gap-3 rounded-md p-3">
-              <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              <span className="text-sm">{item}</span>
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-8 text-center">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">About</p>
+            <h2 className="font-serif text-3xl font-bold md:text-4xl">Advocate Anuradha R. Kulkarni</h2>
+            <p className="mt-2 text-primary font-medium">MSc, LLB, LLM – Intellectual Property Laws</p>
+          </div>
+          <div className="rounded-lg border border-border bg-card p-8 text-center">
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Practicing Intellectual Property Lawyer since 2000, Advocate Anuradha R. Kulkarni has been providing expert legal assistance to entrepreneurs, startups, creators, and businesses in protecting their brands, creative works, and innovations. With deep expertise in trademark registration, copyright protection, and patent filing under Indian law, she has successfully handled thousands of IP cases across the country.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                "Trademark Search & Registration",
+                "Trademark Objection & Opposition",
+                "Trademark Hearing Representation",
+                "Copyright Registration & Licensing",
+                "Patent Filing & Documentation",
+                "IP Strategy & Business Consultation",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 shrink-0 text-primary" />
+                  <span className="text-sm">{item}</span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
@@ -159,8 +200,8 @@ const Index = () => (
     {/* CTA */}
     <section className="py-20">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-4 font-serif text-3xl font-bold">Ready to Protect Your Intellectual Property?</h2>
-        <p className="mb-8 text-muted-foreground">Get started today with a free consultation from our IP experts.</p>
+        <h2 className="mb-4 font-serif text-3xl font-bold">Start Protecting Your Intellectual Property Today</h2>
+        <p className="mb-8 text-muted-foreground">Contact Advocate Anuradha R. Kulkarni for professional IP legal guidance.</p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link to="/ai-advisor">
             <Button variant="gold" size="lg">
@@ -169,7 +210,7 @@ const Index = () => (
           </Link>
           <Link to="/contact">
             <Button variant="gold-outline" size="lg">
-              Schedule Consultation <ArrowRight className="ml-1 h-4 w-4" />
+              Contact Us <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
           </Link>
         </div>
