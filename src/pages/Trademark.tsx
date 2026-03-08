@@ -161,20 +161,20 @@ const Trademark = () => {
               {searching ? "Searching..." : "Search Trademark"}
             </Button>
             {searchResult && (
-              <div className={`mt-4 rounded-md border p-4 ${searchResult === "available" ? "border-green-600/40 bg-green-950/20" : "border-yellow-600/40 bg-yellow-950/20"}`}>
+              <div className={`mt-4 rounded-md border p-4 ${searchResult === "available" ? "border-border bg-secondary" : "border-border bg-secondary"}`}>
                 {searchResult === "available" ? (
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-6 w-6 text-green-400" />
+                    <CheckCircle className="h-6 w-6 text-primary" />
                     <div>
-                      <p className="font-semibold text-green-300">Available!</p>
+                      <p className="font-semibold">Available!</p>
                       <p className="text-sm text-muted-foreground">"{brandName}" appears to be available for registration.</p>
                     </div>
                   </div>
                 ) : (
                   <div className="flex items-center gap-3">
-                    <XCircle className="h-6 w-6 text-yellow-400" />
+                    <XCircle className="h-6 w-6 text-primary" />
                     <div>
-                      <p className="font-semibold text-yellow-300">Similar Trademarks Found</p>
+                      <p className="font-semibold">Similar Trademarks Found</p>
                       <p className="text-sm text-muted-foreground">Similar marks exist for "{brandName}". A detailed search is recommended.</p>
                     </div>
                   </div>

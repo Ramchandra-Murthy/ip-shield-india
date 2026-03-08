@@ -46,7 +46,10 @@
     --sidebar-ring: 42 65% 58%;
 
     /* Custom tokens */
-    --gold: 42 65% 58%;
+    --success: 142 70% 45%;
+    --success-foreground: 142 80% 80%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 90% 80%;
     --gold-light: 42 70% 72%;
     --gold-dark: 42 60% 42%;
     --navy: 220 30% 6%;
