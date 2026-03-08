@@ -114,9 +114,11 @@ const Blog = () => (
                   <Clock className="h-3 w-3" /> {post.readTime}
                 </span>
               </div>
-              <h2 className="mb-2 font-serif text-lg font-bold leading-snug">
-                {post.title}
-              </h2>
+              <Link to={`/blog/${post.slug}`}>
+                <h2 className="mb-2 font-serif text-lg font-bold leading-snug group-hover:text-primary transition-colors">
+                  {post.title}
+                </h2>
+              </Link>
               <p className="mb-4 text-sm text-muted-foreground leading-relaxed">
                 {post.excerpt}
               </p>
