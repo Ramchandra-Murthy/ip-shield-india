@@ -17,6 +17,8 @@ import DocumentGenerator from "./pages/DocumentGenerator";
 import AIChatbot from "./pages/AIChatbot";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import IPNews from "./pages/IPNews";
+import BrandReport from "./pages/BrandReport";
 import ClassFinder from "./pages/ClassFinder";
 import ObjectionReply from "./pages/ObjectionReply";
 import TrademarkGuide from "./pages/TrademarkGuide";
@@ -48,6 +50,8 @@ const App = () => (
           <Route path="/ai-advisor" element={<AIChatbot />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/ip-news" element={<IPNews />} />
+          <Route path="/brand-report" element={<BrandReport />} />
           <Route path="/class-finder" element={<ClassFinder />} />
           <Route path="/objection-reply" element={<ObjectionReply />} />
           <Route path="/trademark-guide" element={<TrademarkGuide />} />

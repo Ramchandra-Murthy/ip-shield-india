@@ -19,6 +19,7 @@ const mainLinks = [
 
 const toolLinks = [
   { href: "/brand-generator", label: "AI Brand Generator" },
+  { href: "/brand-report", label: "Brand Report" },
   { href: "/class-finder", label: "Class Finder" },
   { href: "/ai-advisor", label: "AI Legal Advisor" },
   { href: "/objection-reply", label: "Objection Reply" },
@@ -32,6 +33,7 @@ const toolLinks = [
 const moreLinks = [
   { href: "/pricing", label: "Pricing" },
   { href: "/blog", label: "Blog" },
+  { href: "/ip-news", label: "IP News" },
   { href: "/trademark-guide", label: "TM Guide" },
   { href: "/client-intake", label: "Apply Now" },
   { href: "/contact", label: "Contact" },
