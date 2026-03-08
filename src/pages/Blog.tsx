@@ -124,9 +124,9 @@ const Blog = () => (
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-xs text-muted-foreground">{post.date}</span>
-                <span className="flex items-center text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                <Link to={`/blog/${post.slug}`} className="flex items-center text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
                   Read more <ArrowRight className="ml-1 h-3 w-3" />
-                </span>
+                </Link>
               </div>
             </article>
           ))}

@@ -47,6 +47,7 @@ const App = () => (
           <Route path="/documents" element={<DocumentGenerator />} />
           <Route path="/ai-advisor" element={<AIChatbot />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/class-finder" element={<ClassFinder />} />
           <Route path="/objection-reply" element={<ObjectionReply />} />
           <Route path="/trademark-guide" element={<TrademarkGuide />} />
