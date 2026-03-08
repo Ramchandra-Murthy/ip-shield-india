@@ -33,6 +33,7 @@ const toolLinks = [
 const moreLinks = [
   { href: "/pricing", label: "Pricing" },
   { href: "/blog", label: "Blog" },
+  { href: "/ip-news", label: "IP News" },
   { href: "/trademark-guide", label: "TM Guide" },
   { href: "/client-intake", label: "Apply Now" },
   { href: "/contact", label: "Contact" },
