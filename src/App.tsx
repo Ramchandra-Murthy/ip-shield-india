@@ -46,6 +46,8 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/class-finder" element={<ClassFinder />} />
           <Route path="/objection-reply" element={<ObjectionReply />} />
+          <Route path="/trademark-guide" element={<TrademarkGuide />} />
+          <Route path="/client-intake" element={<ClientIntake />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
