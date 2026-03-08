@@ -11,6 +11,7 @@ import {
 
 const mainLinks = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/trademark", label: "Trademark" },
   { href: "/copyright", label: "Copyright" },
   { href: "/patent", label: "Patent" },
@@ -18,6 +19,7 @@ const mainLinks = [
 
 const toolLinks = [
   { href: "/brand-generator", label: "AI Brand Generator" },
+  { href: "/class-finder", label: "Class Finder" },
   { href: "/domain-checker", label: "Domain Checker" },
   { href: "/numerology", label: "Numerology" },
   { href: "/documents", label: "Document Generator" },
@@ -44,13 +46,14 @@ const Navbar = () => {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <Shield className="h-7 w-7 text-primary" />
-          <span className="font-serif text-lg font-bold text-foreground">
-            IP Protection <span className="text-primary">India</span>
-          </span>
+          <div className="flex flex-col leading-tight">
+            <span className="font-serif text-sm font-bold text-foreground">Kulkarni IP Law</span>
+            <span className="text-[10px] text-muted-foreground">Trademark • Copyright • Patent</span>
+          </div>
         </Link>
 
         {/* Desktop */}
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-0.5 lg:flex">
           {mainLinks.map((link) => (
             <Link key={link.href} to={link.href} className={linkClass(link.href)}>
               {link.label}
@@ -77,7 +80,7 @@ const Navbar = () => {
           ))}
 
           <Link to="/contact">
-            <Button variant="gold" size="sm" className="ml-3">
+            <Button variant="gold" size="sm" className="ml-2">
               Free Consultation
             </Button>
           </Link>

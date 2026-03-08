@@ -9,12 +9,14 @@ import Copyright from "./pages/Copyright";
 import Patent from "./pages/Patent";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
 import BrandGenerator from "./pages/BrandGenerator";
 import DomainChecker from "./pages/DomainChecker";
 import Numerology from "./pages/Numerology";
 import DocumentGenerator from "./pages/DocumentGenerator";
 import AIChatbot from "./pages/AIChatbot";
 import Blog from "./pages/Blog";
+import ClassFinder from "./pages/ClassFinder";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,12 +34,14 @@ const App = () => (
           <Route path="/patent" element={<Patent />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/brand-generator" element={<BrandGenerator />} />
           <Route path="/domain-checker" element={<DomainChecker />} />
           <Route path="/numerology" element={<Numerology />} />
           <Route path="/documents" element={<DocumentGenerator />} />
           <Route path="/ai-advisor" element={<AIChatbot />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/class-finder" element={<ClassFinder />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
