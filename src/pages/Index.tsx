@@ -1,33 +1,21 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Shield, FileText, Lightbulb, Search, ArrowRight, CheckCircle } from "lucide-react";
+import { Shield, FileText, Lightbulb, Search, ArrowRight, CheckCircle, Sparkles, Globe, Hash, Bot, FileDown } from "lucide-react";
 
 const services = [
-  {
-    icon: Shield,
-    title: "Trademark Registration",
-    desc: "Protect your brand identity with comprehensive trademark registration across all 45 classes in India.",
-    href: "/trademark",
-  },
-  {
-    icon: FileText,
-    title: "Copyright Registration",
-    desc: "Secure your creative works — literary, artistic, musical, and software — under Indian copyright law.",
-    href: "/copyright",
-  },
-  {
-    icon: Lightbulb,
-    title: "Patent Filing",
-    desc: "File patents for your inventions and innovations with expert guidance through the Indian patent system.",
-    href: "/patent",
-  },
-  {
-    icon: Search,
-    title: "Trademark Search",
-    desc: "Comprehensive trademark availability search before filing to ensure your brand is unique and registrable.",
-    href: "/trademark#search",
-  },
+  { icon: Shield, title: "Trademark Registration", desc: "Protect your brand identity across all 45 classes in India.", href: "/trademark" },
+  { icon: FileText, title: "Copyright Registration", desc: "Secure your creative works under Indian copyright law.", href: "/copyright" },
+  { icon: Lightbulb, title: "Patent Filing", desc: "File patents for your inventions with expert guidance.", href: "/patent" },
+  { icon: Search, title: "AI Trademark Search", desc: "Smart trademark search with risk analysis and registration probability.", href: "/trademark#search" },
+  { icon: Sparkles, title: "AI Brand Generator", desc: "Generate unique brand names with trademark risk and numerology scores.", href: "/brand-generator" },
+  { icon: Bot, title: "AI Legal Advisor", desc: "Ask questions about IP law in India and get instant answers.", href: "/ai-advisor" },
+];
+
+const tools = [
+  { icon: Globe, title: "Domain Checker", desc: "Check domain availability across .com, .in, .ai and more.", href: "/domain-checker" },
+  { icon: Hash, title: "Numerology Analyzer", desc: "Analyze the numerological vibration of your business name.", href: "/numerology" },
+  { icon: FileDown, title: "Document Generator", desc: "Auto-generate trademark application drafts (Form TM-A).", href: "/documents" },
 ];
 
 const stats = [
@@ -46,29 +34,29 @@ const Index = () => (
       <div className="container relative mx-auto px-4 text-center">
         <div className="mx-auto max-w-3xl animate-fade-in">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
-            India's Trusted IP Services
+            AI-Powered IP Protection Platform
           </p>
           <h1 className="mb-6 font-serif text-4xl font-bold leading-tight md:text-6xl">
             Protect Your Brand, Ideas and{" "}
             <span className="text-gradient-gold">Creative Work</span> in India
           </h1>
           <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
-            Expert intellectual property services — trademarks, copyrights, and patents — with a seamless digital-first experience.
+            AI-powered trademark, copyright and patent protection. Smart search, risk analysis, and automated legal documents.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link to="/trademark">
+            <Link to="/trademark#search">
               <Button variant="gold" size="lg">
-                Start Registration <ArrowRight className="ml-1 h-4 w-4" />
+                <Search className="mr-1 h-4 w-4" /> Check Trademark
+              </Button>
+            </Link>
+            <Link to="/trademark">
+              <Button variant="gold-outline" size="lg">
+                Register Brand <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="gold-outline" size="lg">
-                Free Consultation
-              </Button>
-            </Link>
-            <Link to="/trademark#search">
               <Button variant="outline" size="lg">
-                <Search className="mr-1 h-4 w-4" /> Check Trademark
+                Free Consultation
               </Button>
             </Link>
           </div>
@@ -93,17 +81,11 @@ const Index = () => (
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Our Services</p>
-          <h2 className="font-serif text-3xl font-bold md:text-4xl">
-            Comprehensive IP Protection
-          </h2>
+          <h2 className="font-serif text-3xl font-bold md:text-4xl">Comprehensive IP Protection</h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            <Link
-              key={s.title}
-              to={s.href}
-              className="group rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/40 hover:shadow-gold"
-            >
+            <Link key={s.title} to={s.href} className="group rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/40 hover:shadow-gold">
               <s.icon className="mb-4 h-10 w-10 text-primary" />
               <h3 className="mb-2 font-serif text-lg font-semibold">{s.title}</h3>
               <p className="text-sm text-muted-foreground">{s.desc}</p>
@@ -116,23 +98,40 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Why Us */}
+    {/* Platform Tools */}
     <section className="border-t border-border bg-card py-20">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Platform Tools</p>
+          <h2 className="font-serif text-3xl font-bold md:text-4xl">Smart Business Tools</h2>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {tools.map((t) => (
+            <Link key={t.title} to={t.href} className="group rounded-lg border border-border bg-background p-6 transition-all hover:border-primary/40 hover:shadow-gold">
+              <t.icon className="mb-4 h-10 w-10 text-primary" />
+              <h3 className="mb-2 font-serif text-lg font-semibold">{t.title}</h3>
+              <p className="text-sm text-muted-foreground">{t.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Why Us */}
+    <section className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="mb-12 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Why Choose Us</p>
-          <h2 className="font-serif text-3xl font-bold md:text-4xl">
-            Trusted by Thousands of Businesses
-          </h2>
+          <h2 className="font-serif text-3xl font-bold md:text-4xl">Trusted by Thousands</h2>
         </div>
         <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-2">
           {[
-            "Government-registered IP professionals",
+            "AI-powered legal analysis & risk assessment",
+            "Government compliant filings (IP India)",
             "End-to-end digital filing process",
             "Transparent pricing, no hidden fees",
-            "Dedicated support throughout the process",
-            "Trademark monitoring & opposition support",
-            "Fast turnaround with real-time status tracking",
+            "Secure document handling & cloud storage",
+            "Fast turnaround with real-time tracking",
           ].map((item) => (
             <div key={item} className="flex items-start gap-3 rounded-md p-3">
               <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -143,20 +142,37 @@ const Index = () => (
       </div>
     </section>
 
+    {/* Blog Preview */}
+    <section className="border-t border-border bg-card py-20">
+      <div className="container mx-auto px-4 text-center">
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Knowledge Hub</p>
+        <h2 className="mb-4 font-serif text-3xl font-bold md:text-4xl">Latest from Our Blog</h2>
+        <p className="mb-6 text-muted-foreground">Expert insights on IP protection in India</p>
+        <Link to="/blog">
+          <Button variant="gold-outline">
+            Visit Blog <ArrowRight className="ml-1 h-4 w-4" />
+          </Button>
+        </Link>
+      </div>
+    </section>
+
     {/* CTA */}
     <section className="py-20">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-4 font-serif text-3xl font-bold">
-          Ready to Protect Your Intellectual Property?
-        </h2>
-        <p className="mb-8 text-muted-foreground">
-          Get started today with a free consultation from our IP experts.
-        </p>
-        <Link to="/contact">
-          <Button variant="gold" size="lg">
-            Schedule Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
-          </Button>
-        </Link>
+        <h2 className="mb-4 font-serif text-3xl font-bold">Ready to Protect Your Intellectual Property?</h2>
+        <p className="mb-8 text-muted-foreground">Get started today with a free consultation from our IP experts.</p>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <Link to="/ai-advisor">
+            <Button variant="gold" size="lg">
+              <Bot className="mr-2 h-4 w-4" /> Ask AI Advisor
+            </Button>
+          </Link>
+          <Link to="/contact">
+            <Button variant="gold-outline" size="lg">
+              Schedule Consultation <ArrowRight className="ml-1 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   </Layout>
