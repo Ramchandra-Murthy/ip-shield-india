@@ -19,6 +19,7 @@ const mainLinks = [
 
 const toolLinks = [
   { href: "/brand-generator", label: "AI Brand Generator" },
+  { href: "/brand-report", label: "Brand Report" },
   { href: "/class-finder", label: "Class Finder" },
   { href: "/ai-advisor", label: "AI Legal Advisor" },
   { href: "/objection-reply", label: "Objection Reply" },
