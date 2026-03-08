@@ -20,6 +20,8 @@ import ClassFinder from "./pages/ClassFinder";
 import ObjectionReply from "./pages/ObjectionReply";
 import TrademarkGuide from "./pages/TrademarkGuide";
 import ClientIntake from "./pages/ClientIntake";
+import OppositionNotice from "./pages/OppositionNotice";
+import HearingPrep from "./pages/HearingPrep";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
