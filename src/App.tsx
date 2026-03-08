@@ -17,6 +17,7 @@ import DocumentGenerator from "./pages/DocumentGenerator";
 import AIChatbot from "./pages/AIChatbot";
 import Blog from "./pages/Blog";
 import ClassFinder from "./pages/ClassFinder";
+import ObjectionReply from "./pages/ObjectionReply";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/ai-advisor" element={<AIChatbot />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/class-finder" element={<ClassFinder />} />
+          <Route path="/objection-reply" element={<ObjectionReply />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

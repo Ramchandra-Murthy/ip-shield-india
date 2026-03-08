@@ -24,6 +24,7 @@ const toolLinks = [
   { href: "/numerology", label: "Numerology" },
   { href: "/documents", label: "Document Generator" },
   { href: "/ai-advisor", label: "AI Legal Advisor" },
+  { href: "/objection-reply", label: "Objection Reply Generator" },
 ];
 
 const moreLinks = [
