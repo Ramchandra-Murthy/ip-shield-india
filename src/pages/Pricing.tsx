@@ -139,13 +139,16 @@ const Pricing = () => (
         </div>
         
         {/* Additional Info */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-muted-foreground">
-            All prices include professional fees. Government charges as per official rates.{" "}
-            <Link to="/contact" className="text-primary hover:underline">
-              Contact us
-            </Link>{" "}
-            for volume discounts and enterprise pricing.
+        <div className="mt-12 rounded-lg border border-border bg-card p-6 text-center">
+          <h3 className="font-serif text-lg font-semibold mb-2">Government Fee Reference</h3>
+          <div className="grid gap-2 text-sm text-muted-foreground md:grid-cols-3 mb-4">
+            <div><strong>Trademark:</strong> ₹4,500 (Individual/Startup) · ₹9,000 (Company)</div>
+            <div><strong>Copyright:</strong> ₹500–₹2,000 depending on work type</div>
+            <div><strong>Patent:</strong> ₹1,600–₹8,000 depending on applicant type</div>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Government fees are collected separately and paid directly to the respective IP offices.{" "}
+            <Link to="/contact" className="text-primary hover:underline">Contact us</Link> for exact fee calculation.
           </p>
         </div>
       </div>
