@@ -1,6 +1,6 @@
-import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   Shield, FileText, Lightbulb, Search, ArrowRight, CheckCircle, Sparkles,
   Globe, Hash, Bot, FileDown, Scale, Phone, Mail, MapPin, Star, Clock,
