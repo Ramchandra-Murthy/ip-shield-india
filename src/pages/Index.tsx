@@ -75,15 +75,32 @@ const Index = () => {
             <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">
               Get your trademark registered in India with <strong className="text-foreground">Advocate Anuradha R. Kulkarni</strong> — 20+ years of IP law experience, 10,000+ cases, 98% success rate.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link to="/contact">
-                <Button variant="gold" size="lg" className="text-base px-8">
-                  <Phone className="mr-2 h-4 w-4" /> Free Consultation
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+              <Link to="/trademark" className="w-full sm:w-auto">
+                <Button variant="gold" size="lg" className="text-base px-8 w-full sm:w-auto">
+                  <Shield className="mr-2 h-4 w-4" /> Start Trademark Registration
+                </Button>
+              </Link>
+              <Link to="/copyright" className="w-full sm:w-auto">
+                <Button variant="gold" size="lg" className="text-base px-8 w-full sm:w-auto">
+                  <FileText className="mr-2 h-4 w-4" /> Start Copyright Registration
+                </Button>
+              </Link>
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button variant="gold-outline" size="lg" className="text-base px-8 w-full sm:w-auto">
+                  <Phone className="mr-2 h-4 w-4" /> Book Consultation
+                </Button>
+              </Link>
+            </div>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+              <Link to="/brand-generator">
+                <Button variant="ghost" size="sm" className="text-sm">
+                  <Sparkles className="mr-2 h-3 w-3" /> Check Brand Name
                 </Button>
               </Link>
               <Link to="/trademark#search">
-                <Button variant="gold-outline" size="lg" className="text-base px-8">
-                  <Search className="mr-2 h-4 w-4" /> Check Trademark
+                <Button variant="ghost" size="sm" className="text-sm">
+                  <Search className="mr-2 h-3 w-3" /> Search Existing Marks
                 </Button>
               </Link>
             </div>
