@@ -41,8 +41,6 @@ const tools = [
   { icon: Search, title: "Trademark Search", desc: "AI-powered risk analysis.", href: "/trademark#search" },
   { icon: BookOpen, title: "Class Finder", desc: "Find your trademark class.", href: "/class-finder" },
   { icon: Bot, title: "AI Legal Advisor", desc: "Ask IP law questions.", href: "/ai-advisor" },
-  { icon: FileDown, title: "Document Generator", desc: "Auto-generate legal drafts.", href: "/documents" },
-  { icon: Globe, title: "Domain Checker", desc: "Check domain availability.", href: "/domain-checker" },
 ];
 
 const faqs = [
