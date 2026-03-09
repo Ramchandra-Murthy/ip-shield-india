@@ -14,11 +14,12 @@ const services = [
     features: [
       "Comprehensive trademark search",
       "Application filing (TM-A)",
-      "Government fee included",
       "Trademark monitoring for 1 year",
       "Dedicated case manager",
       "Status updates via dashboard",
+      "Objection reply drafting",
     ],
+    govtFee: "₹4,500",
   },
   {
     title: "Copyright Registration",
@@ -28,12 +29,13 @@ const services = [
     icon: FileText,
     features: [
       "Copyright application filing",
-      "Government fee included",
       "Document preparation & review",
       "Follow-up with Copyright Office",
       "Registration certificate delivery",
       "Email & phone support",
+      "Revision support included",
     ],
+    govtFee: "₹500–₹2,000",
   },
   {
     title: "Patent Consultation",
@@ -45,10 +47,11 @@ const services = [
       "Prior art search",
       "Patent specification drafting",
       "Application filing with IPO",
-      "Government fee included",
       "Response to examination report",
       "Dedicated patent attorney",
+      "Full documentation support",
     ],
+    govtFee: "₹1,600–₹8,000",
   },
 ];
 
