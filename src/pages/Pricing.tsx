@@ -112,7 +112,10 @@ const Pricing = () => (
                     <span className="text-lg text-muted-foreground line-through">{service.originalPrice}</span>
                   )}
                 </div>
-                <span className="text-sm text-muted-foreground">+ Govt Fees (one-time)</span>
+                <span className="text-sm text-muted-foreground">Professional fee (one-time)</span>
+                <div className="mt-2 rounded-md bg-secondary px-3 py-1.5 text-xs text-muted-foreground">
+                  <strong className="text-foreground">+ Govt Fee:</strong> {service.govtFee}
+                </div>
               </div>
               
               {/* Features */}
