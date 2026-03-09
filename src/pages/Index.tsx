@@ -339,7 +339,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

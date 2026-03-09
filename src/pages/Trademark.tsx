@@ -432,7 +432,7 @@ const Trademark = () => {
           </a>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
