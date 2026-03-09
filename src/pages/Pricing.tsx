@@ -1,12 +1,16 @@
-import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { CheckCircle, ArrowRight, Shield, FileText, Lightbulb } from "lucide-react";
 
-const plans = [
+const services = [
   {
     title: "Trademark Registration",
     price: "₹4,999",
+    originalPrice: "₹7,000",
+    description: "Complete filing, search & legal protection",
+    icon: Shield,
+    popular: true,
     features: [
       "Comprehensive trademark search",
       "Application filing (TM-A)",
@@ -19,7 +23,9 @@ const plans = [
   {
     title: "Copyright Registration",
     price: "₹3,999",
-    popular: false,
+    originalPrice: "₹5,500",
+    description: "Literary and artistic works protection",
+    icon: FileText,
     features: [
       "Copyright application filing",
       "Government fee included",
@@ -30,8 +36,11 @@ const plans = [
     ],
   },
   {
-    title: "Patent Filing",
+    title: "Patent Consultation",
     price: "₹25,000",
+    originalPrice: "₹30,000",
+    description: "Invention filing & patentability search",
+    icon: Lightbulb,
     features: [
       "Prior art search",
       "Patent specification drafting",
@@ -44,7 +53,17 @@ const plans = [
 ];
 
 const Pricing = () => (
-  <Layout>
+  <>
+    <Helmet>
+      <title>Pricing | IP Law Services | Transparent & Affordable Rates</title>
+      <meta
+        name="description"
+        content="Transparent pricing for trademark, copyright, and patent services. No hidden fees. Government charges included. Starting from ₹3,999."
+      />
+      <meta name="keywords" content="trademark registration cost, copyright filing fees, patent attorney rates, ip law pricing india" />
+      <link rel="canonical" href="https://id-preview--89d82703-211f-45e1-a70d-b15c1a88b846.lovable.app/pricing" />
+    </Helmet>
+    
     <section className="py-20 md:py-28">
       <div className="container mx-auto px-4 text-center">
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Pricing</p>
@@ -60,42 +79,72 @@ const Pricing = () => (
     <section className="pb-20">
       <div className="container mx-auto px-4">
         <div className="grid gap-8 md:grid-cols-3">
-          {plans.map((plan, i) => (
+          {services.map((service, i) => (
             <div
-              key={plan.title}
-              className={`relative flex flex-col rounded-lg border p-8 transition-all hover:shadow-gold ${
-                i === 0 ? "border-primary shadow-gold" : "border-border"
+              key={service.title}
+              className={`relative flex flex-col rounded-xl border p-8 transition-all hover:shadow-gold ${
+                service.popular ? "border-primary shadow-gold scale-105" : "border-border"
               }`}
             >
-              {i === 0 && (
+              {service.popular && (
                 <span className="absolute -top-3 left-6 rounded-full bg-gradient-gold px-3 py-1 text-xs font-semibold text-primary-foreground">
                   Most Popular
                 </span>
               )}
-              <h3 className="mb-1 font-serif text-xl font-bold">{plan.title}</h3>
-              <div className="mb-6">
-                <span className="font-serif text-4xl font-bold text-primary">{plan.price}</span>
-                <span className="text-sm text-muted-foreground"> / one-time</span>
+              
+              {/* Icon */}
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                <service.icon className="h-6 w-6 text-primary" />
               </div>
+              
+              {/* Title & Description */}
+              <h3 className="mb-2 font-serif text-xl font-bold">{service.title}</h3>
+              <p className="mb-4 text-sm text-muted-foreground">{service.description}</p>
+              
+              {/* Pricing */}
+              <div className="mb-6">
+                <div className="flex items-baseline gap-2">
+                  <span className="font-serif text-4xl font-bold text-primary">{service.price}</span>
+                  {service.originalPrice && (
+                    <span className="text-lg text-muted-foreground line-through">{service.originalPrice}</span>
+                  )}
+                </div>
+                <span className="text-sm text-muted-foreground">+ Govt Fees (one-time)</span>
+              </div>
+              
+              {/* Features */}
               <div className="mb-8 flex-1 space-y-3">
-                {plan.features.map((f) => (
-                  <div key={f} className="flex items-start gap-2">
+                {service.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-3">
                     <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span className="text-sm">{f}</span>
+                    <span className="text-sm">{feature}</span>
                   </div>
                 ))}
               </div>
+              
+              {/* CTA Button */}
               <Link to="/contact">
-                <Button variant={i === 0 ? "gold" : "gold-outline"} className="w-full">
-                  Get Started <ArrowRight className="ml-1 h-4 w-4" />
+                <Button variant={service.popular ? "gold" : "gold-outline"} className="w-full">
+                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
           ))}
         </div>
+        
+        {/* Additional Info */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-muted-foreground">
+            All prices include professional fees. Government charges as per official rates.{" "}
+            <Link to="/contact" className="text-primary hover:underline">
+              Contact us
+            </Link>{" "}
+            for volume discounts and enterprise pricing.
+          </p>
+        </div>
       </div>
     </section>
-  </Layout>
+  </>
 );
 
 export default Pricing;

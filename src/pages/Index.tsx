@@ -1,6 +1,6 @@
-import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   Shield, FileText, Lightbulb, Search, ArrowRight, CheckCircle, Sparkles,
   Globe, Hash, Bot, FileDown, Scale, Phone, Mail, MapPin, Star, Clock,
@@ -56,7 +56,33 @@ const Index = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <Layout>
+    <>
+      <Helmet>
+        <title>IP Lawyer Mumbai | Trademarks, Copyrights & Patents | Advocate Anuradha R. Kulkarni</title>
+        <meta
+          name="description"
+          content="Expert trademark, copyright and patent services by Advocate Anuradha R. Kulkarni in Mumbai & Bengaluru. 20+ years experience, 98% success rate. Free consultation."
+        />
+        <meta name="keywords" content="trademark lawyer mumbai, copyright registration, patent attorney, ip lawyer india, brand protection" />
+        <link rel="canonical" href="https://id-preview--89d82703-211f-45e1-a70d-b15c1a88b846.lovable.app/" />
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "Attorney",
+            "name": "Advocate Anuradha R. Kulkarni",
+            "description": "Practicing Intellectual Property Lawyer since 2000 specializing in trademark registration, copyright protection, and patent advisory.",
+            "url": "https://id-preview--89d82703-211f-45e1-a70d-b15c1a88b846.lovable.app",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mumbai",
+              "addressRegion": "Maharashtra",
+              "addressCountry": "IN"
+            },
+            "areaServed": ["Mumbai", "Bengaluru", "India"],
+            "practiceArea": ["Intellectual Property Law", "Trademark Law", "Copyright Law", "Patent Law"]
+          }`}
+        </script>
+      </Helmet>
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-36">
         <div className="absolute inset-0 bg-gradient-navy" />
@@ -73,22 +99,28 @@ const Index = () => {
             <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">
               Get your trademark registered in India with <strong className="text-foreground">Advocate Anuradha R. Kulkarni</strong> — 20+ years of IP law experience, 10,000+ cases, 98% success rate.
             </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+            {/* Primary CTA Hierarchy */}
+            <div className="space-y-4">
+              {/* Main Primary Action */}
               <Link to="/trademark" className="w-full sm:w-auto">
-                <Button variant="gold" size="lg" className="text-base px-8 w-full sm:w-auto">
-                  <Shield className="mr-2 h-4 w-4" /> Start Trademark Registration
+                <Button variant="gold" size="lg" className="text-lg px-10 py-4 w-full sm:w-auto font-semibold">
+                  <Shield className="mr-3 h-5 w-5" /> Start Trademark Registration
                 </Button>
               </Link>
-              <Link to="/copyright" className="w-full sm:w-auto">
-                <Button variant="gold" size="lg" className="text-base px-8 w-full sm:w-auto">
-                  <FileText className="mr-2 h-4 w-4" /> Start Copyright Registration
-                </Button>
-              </Link>
-              <Link to="/contact" className="w-full sm:w-auto">
-                <Button variant="gold-outline" size="lg" className="text-base px-8 w-full sm:w-auto">
-                  <Phone className="mr-2 h-4 w-4" /> Book Consultation
-                </Button>
-              </Link>
+              
+              {/* Secondary Actions */}
+              <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+                <Link to="/brand-generator" className="w-full sm:w-auto">
+                  <Button variant="gold-outline" size="lg" className="text-base px-8 w-full sm:w-auto">
+                    <Sparkles className="mr-2 h-4 w-4" /> Check Brand Name
+                  </Button>
+                </Link>
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <Button variant="gold-outline" size="lg" className="text-base px-8 w-full sm:w-auto">
+                    <Phone className="mr-2 h-4 w-4" /> Book Consultation
+                  </Button>
+                </Link>
+              </div>
             </div>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
               <Link to="/brand-generator">
@@ -307,7 +339,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
