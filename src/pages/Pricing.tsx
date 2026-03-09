@@ -61,7 +61,7 @@ const Pricing = () => (
       <title>Pricing | IP Law Services | Transparent & Affordable Rates</title>
       <meta
         name="description"
-        content="Transparent pricing for trademark, copyright, and patent services. No hidden fees. Government charges included. Starting from ₹3,999."
+        content="Transparent pricing for trademark, copyright, and patent services. Professional fees starting from ₹3,999. Government fees separate."
       />
       <meta name="keywords" content="trademark registration cost, copyright filing fees, patent attorney rates, ip law pricing india" />
       <link rel="canonical" href="https://id-preview--89d82703-211f-45e1-a70d-b15c1a88b846.lovable.app/pricing" />
@@ -74,7 +74,7 @@ const Pricing = () => (
           Transparent, Affordable Pricing
         </h1>
         <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-          No hidden fees. All government charges included. Start protecting your intellectual property today.
+          Professional fees only. Government fees payable separately as per official rates.
         </p>
       </div>
     </section>
