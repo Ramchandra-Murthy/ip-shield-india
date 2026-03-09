@@ -94,7 +94,44 @@ const Trademark = () => {
   };
 
   return (
-    <Layout>
+    <>
+      <Helmet>
+        <title>Trademark Registration in India | Expert Legal Services | Mumbai & Bengaluru</title>
+        <meta
+          name="description"
+          content="Professional trademark registration services in India. Complete filing, search & legal protection for your brand with 98% success rate. Free consultation available."
+        />
+        <meta name="keywords" content="trademark registration india, trademark search, brand protection, trademark lawyer mumbai, trademark filing" />
+        <link rel="canonical" href="https://id-preview--89d82703-211f-45e1-a70d-b15c1a88b846.lovable.app/trademark" />
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "LegalService",
+            "name": "Trademark Registration Service",
+            "description": "Professional trademark registration services in India with comprehensive search, application filing, and legal protection for your brand.",
+            "provider": {
+              "@type": "Attorney",
+              "name": "Advocate Anuradha R. Kulkarni",
+              "description": "Practicing Intellectual Property Lawyer since 2000 with 98% success rate",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Mumbai",
+                "addressRegion": "Maharashtra",
+                "addressCountry": "IN"
+              }
+            },
+            "areaServed": ["Mumbai", "Bengaluru", "India"],
+            "offers": {
+              "@type": "Offer",
+              "price": "4999",
+              "priceCurrency": "INR",
+              "description": "Complete trademark registration including government fees"
+            },
+            "serviceType": "Trademark Registration",
+            "url": "https://id-preview--89d82703-211f-45e1-a70d-b15c1a88b846.lovable.app/trademark"
+          }`}
+        </script>
+      </Helmet>
       {/* Hero */}
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4">
