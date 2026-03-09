@@ -14,11 +14,12 @@ const services = [
     features: [
       "Comprehensive trademark search",
       "Application filing (TM-A)",
-      "Government fee included",
       "Trademark monitoring for 1 year",
       "Dedicated case manager",
       "Status updates via dashboard",
+      "Objection reply drafting",
     ],
+    govtFee: "₹4,500",
   },
   {
     title: "Copyright Registration",
@@ -28,12 +29,13 @@ const services = [
     icon: FileText,
     features: [
       "Copyright application filing",
-      "Government fee included",
       "Document preparation & review",
       "Follow-up with Copyright Office",
       "Registration certificate delivery",
       "Email & phone support",
+      "Revision support included",
     ],
+    govtFee: "₹500–₹2,000",
   },
   {
     title: "Patent Consultation",
@@ -45,10 +47,11 @@ const services = [
       "Prior art search",
       "Patent specification drafting",
       "Application filing with IPO",
-      "Government fee included",
       "Response to examination report",
       "Dedicated patent attorney",
+      "Full documentation support",
     ],
+    govtFee: "₹1,600–₹8,000",
   },
 ];
 
@@ -58,7 +61,7 @@ const Pricing = () => (
       <title>Pricing | IP Law Services | Transparent & Affordable Rates</title>
       <meta
         name="description"
-        content="Transparent pricing for trademark, copyright, and patent services. No hidden fees. Government charges included. Starting from ₹3,999."
+        content="Transparent pricing for trademark, copyright, and patent services. Professional fees starting from ₹3,999. Government fees separate."
       />
       <meta name="keywords" content="trademark registration cost, copyright filing fees, patent attorney rates, ip law pricing india" />
       <link rel="canonical" href="https://id-preview--89d82703-211f-45e1-a70d-b15c1a88b846.lovable.app/pricing" />
@@ -71,7 +74,7 @@ const Pricing = () => (
           Transparent, Affordable Pricing
         </h1>
         <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-          No hidden fees. All government charges included. Start protecting your intellectual property today.
+          Professional fees only. Government fees payable separately as per official rates.
         </p>
       </div>
     </section>
@@ -109,7 +112,10 @@ const Pricing = () => (
                     <span className="text-lg text-muted-foreground line-through">{service.originalPrice}</span>
                   )}
                 </div>
-                <span className="text-sm text-muted-foreground">+ Govt Fees (one-time)</span>
+                <span className="text-sm text-muted-foreground">Professional fee (one-time)</span>
+                <div className="mt-2 rounded-md bg-secondary px-3 py-1.5 text-xs text-muted-foreground">
+                  <strong className="text-foreground">+ Govt Fee:</strong> {service.govtFee}
+                </div>
               </div>
               
               {/* Features */}
@@ -133,13 +139,16 @@ const Pricing = () => (
         </div>
         
         {/* Additional Info */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-muted-foreground">
-            All prices include professional fees. Government charges as per official rates.{" "}
-            <Link to="/contact" className="text-primary hover:underline">
-              Contact us
-            </Link>{" "}
-            for volume discounts and enterprise pricing.
+        <div className="mt-12 rounded-lg border border-border bg-card p-6 text-center">
+          <h3 className="font-serif text-lg font-semibold mb-2">Government Fee Reference</h3>
+          <div className="grid gap-2 text-sm text-muted-foreground md:grid-cols-3 mb-4">
+            <div><strong>Trademark:</strong> ₹4,500 (Individual/Startup) · ₹9,000 (Company)</div>
+            <div><strong>Copyright:</strong> ₹500–₹2,000 depending on work type</div>
+            <div><strong>Patent:</strong> ₹1,600–₹8,000 depending on applicant type</div>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Government fees are collected separately and paid directly to the respective IP offices.{" "}
+            <Link to="/contact" className="text-primary hover:underline">Contact us</Link> for exact fee calculation.
           </p>
         </div>
       </div>
