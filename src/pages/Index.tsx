@@ -56,7 +56,33 @@ const Index = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <Layout>
+    <>
+      <Helmet>
+        <title>IP Lawyer Mumbai | Trademarks, Copyrights & Patents | Advocate Anuradha R. Kulkarni</title>
+        <meta
+          name="description"
+          content="Expert trademark, copyright and patent services by Advocate Anuradha R. Kulkarni in Mumbai & Bengaluru. 20+ years experience, 98% success rate. Free consultation."
+        />
+        <meta name="keywords" content="trademark lawyer mumbai, copyright registration, patent attorney, ip lawyer india, brand protection" />
+        <link rel="canonical" href="https://id-preview--89d82703-211f-45e1-a70d-b15c1a88b846.lovable.app/" />
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "Attorney",
+            "name": "Advocate Anuradha R. Kulkarni",
+            "description": "Practicing Intellectual Property Lawyer since 2000 specializing in trademark registration, copyright protection, and patent advisory.",
+            "url": "https://id-preview--89d82703-211f-45e1-a70d-b15c1a88b846.lovable.app",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mumbai",
+              "addressRegion": "Maharashtra",
+              "addressCountry": "IN"
+            },
+            "areaServed": ["Mumbai", "Bengaluru", "India"],
+            "practiceArea": ["Intellectual Property Law", "Trademark Law", "Copyright Law", "Patent Law"]
+          }`}
+        </script>
+      </Helmet>
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-36">
         <div className="absolute inset-0 bg-gradient-navy" />
