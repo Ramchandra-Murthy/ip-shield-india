@@ -1,12 +1,16 @@
-import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { CheckCircle, ArrowRight, Shield, FileText, Lightbulb } from "lucide-react";
 
-const plans = [
+const services = [
   {
     title: "Trademark Registration",
     price: "₹4,999",
+    originalPrice: "₹7,000",
+    description: "Complete filing, search & legal protection",
+    icon: Shield,
+    popular: true,
     features: [
       "Comprehensive trademark search",
       "Application filing (TM-A)",
@@ -19,7 +23,9 @@ const plans = [
   {
     title: "Copyright Registration",
     price: "₹3,999",
-    popular: false,
+    originalPrice: "₹5,500",
+    description: "Literary and artistic works protection",
+    icon: FileText,
     features: [
       "Copyright application filing",
       "Government fee included",
@@ -30,8 +36,11 @@ const plans = [
     ],
   },
   {
-    title: "Patent Filing",
+    title: "Patent Consultation",
     price: "₹25,000",
+    originalPrice: "₹30,000",
+    description: "Invention filing & patentability search",
+    icon: Lightbulb,
     features: [
       "Prior art search",
       "Patent specification drafting",
