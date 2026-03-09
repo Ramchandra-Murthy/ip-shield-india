@@ -35,6 +35,9 @@ const TrademarkGuide = React.lazy(() => import("./pages/TrademarkGuide"));
 const ClientIntake = React.lazy(() => import("./pages/ClientIntake"));
 const OppositionNotice = React.lazy(() => import("./pages/OppositionNotice"));
 const HearingPrep = React.lazy(() => import("./pages/HearingPrep"));
+const Disclaimer = React.lazy(() => import("./pages/Disclaimer"));
+const PrivacyPolicy = React.lazy(() => import("./pages/PrivacyPolicy"));
+const Terms = React.lazy(() => import("./pages/Terms"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
