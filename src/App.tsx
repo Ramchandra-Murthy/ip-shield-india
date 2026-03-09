@@ -84,6 +84,9 @@ const App = () => (
                     <Route path="/client-intake" element={<ClientIntake />} />
                     <Route path="/opposition-notice" element={<OppositionNotice />} />
                     <Route path="/hearing-prep" element={<HearingPrep />} />
+                    <Route path="/disclaimer" element={<Disclaimer />} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/terms" element={<Terms />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
