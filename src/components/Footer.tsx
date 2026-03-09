@@ -41,10 +41,10 @@ const Footer = () => (
           <h4 className="font-serif text-sm font-semibold text-primary mb-3">Tools</h4>
           <div className="flex flex-col gap-2">
             <Link to="/brand-generator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Brand Name Generator</Link>
+            <Link to="/class-finder" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Class Finder</Link>
+            <Link to="/objection-reply" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Objection Reply Generator</Link>
             <Link to="/domain-checker" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Domain Checker</Link>
-            <Link to="/numerology" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Numerology Analyzer</Link>
             <Link to="/documents" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Document Generator</Link>
-            <Link to="/ai-advisor" className="text-sm text-muted-foreground hover:text-foreground transition-colors">AI Legal Advisor</Link>
           </div>
         </div>
         <div>
@@ -52,15 +52,24 @@ const Footer = () => (
           <div className="flex flex-col gap-2">
             <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</Link>
             <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
+            <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link>
             <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
           </div>
-          <p className="mt-4 text-xs text-muted-foreground">
-            Govt. Authority: Controller General of Patents, Designs & Trademarks
-          </p>
+          <h4 className="font-serif text-sm font-semibold text-primary mt-5 mb-3">Legal</h4>
+          <div className="flex flex-col gap-2">
+            <Link to="/disclaimer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Disclaimer</Link>
+            <Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
-      <div className="mt-10 border-t border-border pt-6 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} IP Protection India — Advocate Anuradha R. Kulkarni. All rights reserved.
+      <div className="mt-10 border-t border-border pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+        <p>© {new Date().getFullYear()} Advocate Anuradha R. Kulkarni. All rights reserved. Mumbai & Bengaluru.</p>
+        <div className="flex items-center gap-4">
+          <Link to="/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link>
+          <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link>
+          <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+        </div>
       </div>
     </div>
   </footer>
